@@ -4,17 +4,19 @@ import driver.DriverManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import log.LoggingManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 
+import static config.ConfigurationManager.configuration;
 public class Hooks {
 
     @Before
     public static void setupBrowser() {
-        DriverManager.setThreadDriver("chrome");
+        DriverManager.setThreadDriver(configuration().browser());
         DriverManager.getThreadDriver();
         System.out.println("Browser launched");
+        LoggingManager.info( " test is starting.");
     }
 
     @After

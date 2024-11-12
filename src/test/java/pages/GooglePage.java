@@ -25,6 +25,9 @@ public class GooglePage extends BasePage{
         queryInput.click();
         queryInput.sendKeys(text + Keys.ENTER);
         Utils.sleep(5);
+    }
+
+    public void clickQuery(){
         findByAny("xpath", "//h3[contains(text(),'Türkiye')]").click();
     }
 }

@@ -20,7 +20,11 @@ public class YoutubePage extends BasePage{
         queryInput.click();
         queryInput.sendKeys(text + Keys.ENTER);
         Utils.sleep(5);
+    }
+
+    public void clickVideo(){
         findByAny("xpath", "  //h3[contains(@class,'title-and-badge')]/a[contains(@title,'Türkiye')]").click();
         Utils.sleep(5);
     }
+
 }

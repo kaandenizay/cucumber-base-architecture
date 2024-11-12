@@ -31,13 +31,6 @@
     </dependency>
 
     <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>7.7.0</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-junit</artifactId>
       <version>7.15.0</version>
@@ -63,6 +56,12 @@
       <version>2.19.0</version>
     </dependency>
 
+    <!--    To manage and map configuration file-->
+    <dependency>
+      <groupId>org.aeonbits.owner</groupId>
+      <artifactId>owner</artifactId>
+      <version>1.0.12</version>
+    </dependency>
   </dependencies>
 
 

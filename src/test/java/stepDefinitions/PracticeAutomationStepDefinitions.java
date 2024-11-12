@@ -8,14 +8,15 @@ import io.cucumber.java.en.When;
 import pages.PracticeAutoLoginPage;
 import utils.Utils;
 
+import static config.ConfigurationManager.configuration;
+
 public class PracticeAutomationStepDefinitions {
 
-    PracticeAutoLoginPage practiceAutoLoginPage = new PracticeAutoLoginPage(DriverManager.getThreadDriver());
+    final PracticeAutoLoginPage practiceAutoLoginPage = new PracticeAutoLoginPage(DriverManager.getThreadDriver());
     @Given("Go to Login Page")
     public void userGoesLoginPage(){
-        Utils.goPage("https://practicetestautomation.com/practice-test-login/");
+        Utils.goPage(configuration().practiceAutomationUrl());
         System.out.println("Page is opened");
-        //DFsdfsdf
     }
 
     @When("User types {string} as username")

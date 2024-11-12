@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",//path from content root
         glue = "stepDefinitions",
         dryRun =false,
-        tags ="@firstScenario",
+        tags ="@regression",
         publish = false
 
 

@@ -1,5 +1,5 @@
-@firstScenario
-Feature: Scenario Example
+@practiceAutomation @regression
+Feature: Practice Automation Functionality
 
   Scenario: go to web site and login test
 
