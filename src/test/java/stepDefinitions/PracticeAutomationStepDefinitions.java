@@ -15,6 +15,7 @@ public class PracticeAutomationStepDefinitions {
     public void userGoesLoginPage(){
         Utils.goPage("https://practicetestautomation.com/practice-test-login/");
         System.out.println("Page is opened");
+        //DFsdfsdf
     }
 
     @When("User types {string} as username")
