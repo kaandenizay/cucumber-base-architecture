@@ -85,8 +85,7 @@
           <threadCount>4</threadCount>
           <perCoreThreadCount>false</perCoreThreadCount>
           <testFailureIgnore>true</testFailureIgnore>
-          <!--                    <rerunFailingTestsCount>2</rerunFailingTestsCount>-->
-          <!--qwerty-->
+
           <includes>
             <!--                        <include>/FailedTestRunner.java</include>-->
             <include>/CukesRunner.java</include>
