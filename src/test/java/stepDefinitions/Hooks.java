@@ -16,7 +16,7 @@ public class Hooks {
         DriverManager.setThreadDriver(configuration().browser());
         DriverManager.getThreadDriver();
         System.out.println("Browser launched");
-        LoggingManager.info( " test is starting.");
+        LoggingManager.info( "Test is starting.");
     }
 
     @After

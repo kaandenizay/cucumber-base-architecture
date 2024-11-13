@@ -1,10 +1,12 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
+@Log4j2
 public abstract class BasePage {
 
     protected WebDriver driver;
@@ -25,6 +27,7 @@ public abstract class BasePage {
             case "partialLinkText" -> driver.findElement(By.partialLinkText(text));
             default -> driver.findElement(By.xpath(text));
         };
+//        log.info("Element is found");
         return webElement;
     }
 
