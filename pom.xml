@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.mdpera</groupId>
+  <groupId>org.example</groupId>
   <artifactId>CucumberAutomationFramework</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -11,8 +11,8 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -34,19 +34,6 @@
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-junit</artifactId>
       <version>7.15.0</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>me.jvt.cucumber</groupId>
-      <artifactId>reporting-plugin</artifactId>
-      <version>7.11.0</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-slf4j-impl</artifactId>
-      <version>2.22.1</version>
       <scope>test</scope>
     </dependency>
 
@@ -73,19 +60,11 @@
 
   <build>
     <plugins>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M5</version>
-
-        <dependencies>
-          <dependency>
-            <groupId>org.apache.maven.surefire</groupId>
-            <artifactId>surefire-junit47</artifactId>
-            <version>3.0.0-M5</version>
-          </dependency>
-        </dependencies>
-
+        <version>2.22.0</version>
         <configuration>
           <parallel>methods</parallel>
           <threadCount>4</threadCount>

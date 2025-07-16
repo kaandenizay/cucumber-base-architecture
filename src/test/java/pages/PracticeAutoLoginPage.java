@@ -1,8 +1,12 @@
 package pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
+import utils.Utils;
 
 public class PracticeAutoLoginPage extends BasePage {
 
@@ -12,6 +16,13 @@ public class PracticeAutoLoginPage extends BasePage {
     private WebElement passwordInput;
     @FindBy(id = "submit")
     private WebElement submitButton;
+    @FindAll({
+            @FindBy(id="books-wrapper"),
+            @FindBy(id="userName-value")
+    })
+    private WebElement user;
+    @FindBy(xpath = "//efilli-layout-dynamic")
+    private WebElement shadowFrame;
 
     public PracticeAutoLoginPage(WebDriver driver) {
         super(driver);
@@ -27,5 +38,13 @@ public class PracticeAutoLoginPage extends BasePage {
 
     public void clickSubmit(){
         submitButton.click();
+    }
+
+    public void blockCookies(){
+        Utils.sleep(5);
+        SearchContext shadowRoot = shadowFrame.getShadowRoot();
+        // Only CSS Selector is working inside of shadow elements
+        WebElement rejectCookies = shadowRoot.findElement(By.cssSelector("div[data-name='Reject Button']"));
+        rejectCookies.click();
     }
 }
