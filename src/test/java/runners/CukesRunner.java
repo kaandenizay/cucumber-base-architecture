@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",//path from content root
         glue = "stepDefinitions",
         dryRun =false,
-        tags ="@regression",
+        tags ="@contact-us",
         publish = false
 
 
