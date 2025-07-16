@@ -1,8 +1,13 @@
 package driver;
 
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class DriverManager {
@@ -13,7 +18,7 @@ public class DriverManager {
         if (browser.equals("firefox")) {
             driverPool.set(new FirefoxDriver());
         } else if (browser.equals("chrome")) {
-            driverPool.set(new ChromeDriver());
+            driverPool.set(new ChromeDriver(chromeOptions()));
         }
     }
 
@@ -32,4 +37,11 @@ public class DriverManager {
     public static void removeThreadPool() {
         driverPool.remove();
         }
+
+    public static ChromeOptions chromeOptions() {
+        ChromeOptions options = new ChromeOptions();
+        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        return options;
     }
+
+}
