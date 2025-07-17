@@ -11,7 +11,7 @@ public class HomePage extends BasePage {
     }
 
     public void navigateToHomePage() {
-       Utils.goPage("https://webdriveruniversity.com/");
+       goPage("https://webdriveruniversity.com/");
     }
 
     public void clickAndNavigateToContactUsPage() {

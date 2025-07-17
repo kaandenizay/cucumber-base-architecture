@@ -1,21 +1,38 @@
 package utils;
 
 import driver.DriverManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Utils {
 
+    private static ThreadLocal<WebDriverWait> wait = new ThreadLocal<>();
+    private static final int DEFAULT_TIMEOUT_SECONDS = 15;
+
     private static WebDriver getDriver(){
+        wait = ThreadLocal.withInitial(() ->
+                new WebDriverWait(DriverManager.getThreadDriver(), Duration.ofSeconds(DEFAULT_TIMEOUT_SECONDS)));
         return DriverManager.getThreadDriver();
     }
 
     public static void goPage(String url) {
         getDriver().get(url);
+    }
+
+    public static WebElement getElement(Object element) {
+        if(element instanceof WebElement) {
+            return wait.get().until(ExpectedConditions.visibilityOf((WebElement) element));
+        } else {
+            return wait.get().until(ExpectedConditions.visibilityOfElementLocated((By) element));
+        }
     }
 
 
@@ -27,10 +44,32 @@ public class Utils {
         }
     }
 
-    public static void waitForVisibility (WebElement element, int timeout){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(timeout));
-        wait.until(ExpectedConditions.visibilityOf(element));
+    public static void waitForVisibility (WebElement element){
+        wait.get().until(ExpectedConditions.visibilityOf(element));
     }
+
+    public static void highlightElement(WebElement element) {
+        scrollToElement(element);
+        var highlightScript = "arguments[0].style.border='3px solid purple';";
+        ((JavascriptExecutor) getDriver()).executeScript(highlightScript, element);
+    }
+
+    public static void scrollToElement(WebElement element) {
+        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", getElement(element));
+    }
+
+    public static void click(WebElement element) {
+        wait.get().until(ExpectedConditions.elementToBeClickable(element));
+        highlightElement(element);
+        element.click();
+    }
+
+    public static void switchToLastWindow() {
+        List<String> windowsTab = new ArrayList<String>(getDriver().getWindowHandles());
+        getDriver().switchTo().window(windowsTab.get(windowsTab.size() - 1));
+    }
+
+
 
 
 }

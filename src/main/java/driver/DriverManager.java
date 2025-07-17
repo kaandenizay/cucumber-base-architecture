@@ -6,10 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-
 public class DriverManager {
 
     private static final ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
@@ -40,7 +36,7 @@ public class DriverManager {
 
     public static ChromeOptions chromeOptions() {
         ChromeOptions options = new ChromeOptions();
-        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+            options.setPageLoadStrategy(PageLoadStrategy.EAGER); // WebDriver waits until DOMContentLoaded event fire is returned.
         return options;
     }
 
