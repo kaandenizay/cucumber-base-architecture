@@ -7,19 +7,19 @@ Feature: WebdriverUniversity.com - Contact Us Page
 
   @smoke
   Scenario: Valid Contact Us Form Submission
-    And I type a first name
-    And I type a last name
-    And I enter an email address
-    And I type a comment
+    And I type a first name as "Kaan"
+    And I type a last name as "Denizay"
+    And I enter an email address as "abc@gmail.com"
+    And I type a random comment
     And I click on the submit button
     Then I should be presented with a successful contact us submission message
 
   @negativeScenario
   Scenario: Invalid Contact Us Form Submission
-    And I type a first name
-    And I type a last name
-#    And I enter an email address
-    And I type a comment
+    And I type a first name as "Kaan"
+    And I type a last name as "Denizay"
+#    And I enter an email address as "abc@gmail.com"
+    And I type a random comment
     And I click on the submit button
     Then I should be presented with an unsuccessful "Error: all fields are required" message
     Then I should be presented with an unsuccessful "Error: Invalid email address" message

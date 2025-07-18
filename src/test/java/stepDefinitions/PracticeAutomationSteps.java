@@ -5,18 +5,22 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import log.LoggingManager;
+import lombok.AllArgsConstructor;
+import pages.BasePage;
 import pages.PracticeAutoLoginPage;
-import utils.Utils;
 
 import static config.ConfigurationManager.configuration;
 
-public class PracticeAutomationStepDefinitions {
+@AllArgsConstructor
+public class PracticeAutomationSteps extends BasePage {
 
-    final PracticeAutoLoginPage practiceAutoLoginPage = new PracticeAutoLoginPage(DriverManager.getThreadDriver());
+    private PracticeAutoLoginPage practiceAutoLoginPage;
+
     @Given("Go to Login Page")
     public void userGoesLoginPage(){
-        Utils.goPage(configuration().practiceAutomationUrl());
-        System.out.println("Page is opened");
+        goPage(configuration().practiceAutomationUrl());
+        LoggingManager.info("Page is opened");
     }
 
     @When("User types {string} as username")
@@ -39,6 +43,6 @@ public class PracticeAutomationStepDefinitions {
 
     @Then("User should see the success message")
     public void userShouldSeeTheSuccessMessage() {
-        System.out.println("Page is opened");
+        LoggingManager.info("Page is opened");
     }
 }

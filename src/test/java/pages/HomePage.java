@@ -1,25 +1,29 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-import utils.Utils;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import static config.ConfigurationManager.configuration;
 
 public class HomePage extends BasePage {
 
-
-    public HomePage(WebDriver driver) {
-        super(driver);
-    }
+    @FindBy(xpath = "//h1[text()='CONTACT US']")
+    private WebElement contactUsLink;
+    @FindBy(xpath = "//h1[text()='LOGIN PORTAL']")
+    private WebElement loginPortalLink;
 
     public void navigateToHomePage() {
-       goPage("https://webdriveruniversity.com/");
+       goPage(configuration().webDriverUniversityUrl());
     }
 
     public void clickAndNavigateToContactUsPage() {
-//        setPageChangeAfterClickByRole("LINK","CONTACT US Contact Us Form");
-//        getPage().bringToFront();
+        click(contactUsLink);
+        switchToLastWindow();
     }
 
     public void clickAndNavigateToLoginPage() {
-//        setPageChangeAfterClickByRole("LINK","LOGIN PORTAL Login Portal Are");
+        click(loginPortalLink);
+        switchToLastWindow();
     }
+
 }

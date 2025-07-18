@@ -11,13 +11,10 @@ public interface Configuration extends Config {
     @Key("browser")
     String browser();
 
-    @Key("google.baseUrl")
-    String googleUrl();
-    @Key("youtube.baseUrl")
-    String youtubeUrl();
-    @Key("n11.baseUrl")
-    String n11Url();
     @Key("practiceAutomation.baseUrl")
     String practiceAutomationUrl();
+
+    @Key("webDriverUniversity.baseUrl")
+    String webDriverUniversityUrl();
 
 }
