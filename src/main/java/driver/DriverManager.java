@@ -18,7 +18,6 @@ public class DriverManager {
         } else if (browser.equals("chrome")) {
             driverPool.set(new ChromeDriver(chromeOptions()));
         }
-        driverPool.get().manage().window().maximize();
     }
 
     public static WebDriver getThreadDriver() {
@@ -35,9 +34,22 @@ public class DriverManager {
 
     public static ChromeOptions chromeOptions() {
         ChromeOptions options = new ChromeOptions();
-            options.setPageLoadStrategy(PageLoadStrategy.EAGER); // WebDriver waits until DOMContentLoaded event fire is returned.
-            options.setImplicitWaitTimeout(Duration.ofSeconds(10));
-            options.addArguments("--headless");
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER); // WebDriver waits until DOMContentLoaded event fire is returned.
+        options.setImplicitWaitTimeout(Duration.ofSeconds(10));
+
+        // Performance & Stability
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--disable-extensions");
+
+        // Browser Behavior
+        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--start-maximized");
+        options.addArguments("--disable-notifications");
+        options.addArguments("--disable-popup-blocking");
+        options.addArguments("--disable-infobars");
+        options.addArguments("--disable-translate");
         return options;
     }
 
