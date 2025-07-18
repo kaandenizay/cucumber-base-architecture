@@ -76,7 +76,7 @@ $(document).ready(function() {
     <tr class="info">
       <td>CucumberAutomationFramework</td>
         <td>1</td>
-      <td>18 Jul 2025, 17:00</td>
+      <td>18 Jul 2025, 17:06</td>
     </tr>
   </tbody>
 </table>
@@ -129,19 +129,19 @@ $(document).ready(function() {
         <tbody>
         <tr>
           <td class="tagname">Practice Automation Functionality</td>
+          <td      class="passed"    >5</td>
           <td >0</td>
           <td >0</td>
-          <td     class="skipped"   >5</td>
           <td >0</td>
           <td >0</td>
           <td class="total">5</td>
 
+          <td  class="passed"    >1</td>
           <td >0</td>
-          <td  class="failed"    >1</td>
           <td class="total">1</td>
 
-          <td class="duration" data-value="4598413">0.004</td>
-          <td class="failed">Failed</td>
+          <td class="duration" data-value="832826568">0.832</td>
+          <td class="passed">Passed</td>
         </tr>
         </tbody>
 
@@ -176,7 +176,7 @@ $(document).ready(function() {
 </div>
 
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Feature</span>
   <span class="name">Practice Automation Functionality</span>
 
@@ -197,12 +197,12 @@ $(document).ready(function() {
 </div>
 
 
-  <span class="lead-duration duration">0.004</span>
+  <span class="lead-duration duration">0.832</span>
 
 
-  <span data-toggle="collapse" class=" collapsable-control" data-target="#element-1">
+  <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Scenario</span>
   <span class="name">go to web site and login test</span>
 
@@ -213,13 +213,13 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-1" class="collapse collapsable-details  in ">
+  <div id="element-1" class="collapse collapsable-details ">
 
 
   <div class="inner-level hooks-element-before">
-    <div data-toggle="collapse" class=" collapsable-control" data-target="#before-2">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#before-2">
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Hooks</span>
   <span class="name"></span>
 
@@ -229,49 +229,17 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="before-2" class="inner-level collapse collapsable-details  in ">
+    <div id="before-2" class="inner-level collapse collapsable-details ">
         <div class="hook">
-          <div class="brief failed">
+          <div class="brief passed">
             <span class="keyword indention">Before</span>
               <span class="location name">stepDefinitions.Hooks.setupBrowser()</span>
 
-  <span class="lead-duration duration">4.331</span>
+  <span class="lead-duration duration">3.333</span>
 
           </div>
 
 
-
-  <div class="inner-level">
-    <div class="message indention">
-      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-3">
-          <a>Error message</a>
-      </div>
-      <div id="msg-3" class="collapse collapsable-details  in ">
-        <pre>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir 
-Host info: host: 'pkrvmq0rgcvqdmg', ip: '10.1.0.102'
-Build info: version: '4.18.0', revision: 'b6bf9de7cc*'
-System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.11.0-1018-azure', java.version: '17.0.15'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--no-sandbox, --disable-dev-shm-usage, --disable-gpu, --disable-extensions, --window-size=1920,1080, --start-maximized, --disable-notifications, --disable-popup-blocking, --disable-infobars, --disable-translate], binary: /usr/bin/google-chrome, extensions: []}, pageLoadStrategy: eager, timeouts: {implicit: 10000}}]}]
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:139)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:95)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:67)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:162)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:233)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:162)
-	at org.openqa.selenium.chromium.ChromiumDriver.&lt;init&gt;(ChromiumDriver.java:114)
-	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:89)
-	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:84)
-	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:73)
-	at driver.DriverManager.setThreadDriver(DriverManager.java:19)
-	at stepDefinitions.Hooks.setupBrowser(Hooks.java:17)
-</pre>
-      </div>
-    </div>
-  </div>
 
 
 
@@ -284,9 +252,9 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 
 
 <div class="steps inner-level">
-  <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-4">
+  <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-3">
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
 
@@ -296,15 +264,15 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 
   </div>
 
-  <div id="steps-4" class="inner-level collapse collapsable-details  in ">
+  <div id="steps-3" class="inner-level collapse collapsable-details ">
       <div class="step">
 
 
-<div class="brief step-name-Given skipped">
+<div class="brief step-name-Given passed">
   <span class="keyword indention">Given</span>
   <span class="name">Go to Login Page</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">0.530</span>
 
 </div>
 
@@ -327,11 +295,11 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
       <div class="step">
 
 
-<div class="brief step-name-When skipped">
+<div class="brief step-name-When passed">
   <span class="keyword indention">When</span>
   <span class="name">User types <span class="argument">&quot;Kaan&quot;</span> as username</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">0.114</span>
 
 </div>
 
@@ -354,11 +322,11 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
       <div class="step">
 
 
-<div class="brief step-name-And skipped">
+<div class="brief step-name-And passed">
   <span class="keyword indention">And</span>
   <span class="name">User types <span class="argument">&quot;Test1234&quot;</span> as password</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">0.064</span>
 
 </div>
 
@@ -381,11 +349,11 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
       <div class="step">
 
 
-<div class="brief step-name-And skipped">
+<div class="brief step-name-And passed">
   <span class="keyword indention">And</span>
   <span class="name">User clicks button</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">0.122</span>
 
 </div>
 
@@ -408,11 +376,11 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
       <div class="step">
 
 
-<div class="brief step-name-Then skipped">
+<div class="brief step-name-Then passed">
   <span class="keyword indention">Then</span>
   <span class="name">User should see the success message</span>
 
-  <span class="lead-duration duration">0.003</span>
+  <span class="lead-duration duration">0.000</span>
 
 </div>
 
@@ -439,9 +407,9 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 
 
   <div class="inner-level hooks-element-after">
-    <div data-toggle="collapse" class=" collapsable-control" data-target="#after-5">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-4">
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Hooks</span>
   <span class="name"></span>
 
@@ -451,30 +419,17 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 
     </div>
 
-    <div id="after-5" class="inner-level collapse collapsable-details  in ">
+    <div id="after-4" class="inner-level collapse collapsable-details ">
         <div class="hook">
-          <div class="brief failed">
+          <div class="brief passed">
             <span class="keyword indention">After</span>
               <span class="location name">stepDefinitions.Hooks.tearDown(io.cucumber.java.Scenario)</span>
 
-  <span class="lead-duration duration">0.001</span>
+  <span class="lead-duration duration">0.120</span>
 
           </div>
 
 
-
-  <div class="inner-level">
-    <div class="message indention">
-      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-6">
-          <a>Error message</a>
-      </div>
-      <div id="msg-6" class="collapse collapsable-details  in ">
-        <pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because the return value of &quot;driver.DriverManager.getThreadDriver()&quot; is null
-	at stepDefinitions.Hooks.tearDown(Hooks.java:25)
-</pre>
-      </div>
-    </div>
-  </div>
 
 
 
