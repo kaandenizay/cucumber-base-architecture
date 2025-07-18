@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import utils.Utils;
 
 public class PracticeAutoLoginPage extends BasePage {
 
@@ -25,7 +24,7 @@ public class PracticeAutoLoginPage extends BasePage {
     private WebElement shadowFrame;
 
     public PracticeAutoLoginPage(WebDriver driver) {
-        super(driver);
+//        super(driver);
     }
 
     public void fillUsername(String username){
@@ -41,7 +40,7 @@ public class PracticeAutoLoginPage extends BasePage {
     }
 
     public void blockCookies(){
-        Utils.sleep(5);
+        sleep(5);
         SearchContext shadowRoot = shadowFrame.getShadowRoot();
         // Only CSS Selector is working inside of shadow elements
         WebElement rejectCookies = shadowRoot.findElement(By.cssSelector("div[data-name='Reject Button']"));

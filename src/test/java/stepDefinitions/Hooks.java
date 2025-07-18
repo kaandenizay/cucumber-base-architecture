@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-import driver.DriverManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -9,30 +8,24 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import static config.ConfigurationManager.configuration;
+import static driver.DriverManager.*;
+
 public class Hooks {
 
     @Before
     public static void setupBrowser() {
-        DriverManager.setThreadDriver(configuration().browser());
-        DriverManager.getThreadDriver();
-        System.out.println("Browser launched");
-        LoggingManager.info( "Test is starting.");
+        setThreadDriver(configuration().browser());
+        getThreadDriver();
+        LoggingManager.info( "Browser launched"  + "\n" + "Test is starting.");
     }
 
     @After
     public void tearDown(Scenario scenario) {
-        try {
-            final byte[] screenshot = ((TakesScreenshot) DriverManager.getThreadDriver()).getScreenshotAs(OutputType.BYTES);
-            if (scenario.isFailed()) {
-                scenario.attach(screenshot, "image/png", "screenshots");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            System.out.println("This is After annotation");
-            DriverManager.quitDriver();
-            System.out.println("Browser closed");
-            DriverManager.removeThreadPool();
+        if (scenario.isFailed()) {
+            byte[] screenshot = ((TakesScreenshot) getThreadDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", "screenshots");
         }
+        cleanupDriver();
+        LoggingManager.info("Browser closed" + "\n" + "Thread is cleaned up");
     }
 }

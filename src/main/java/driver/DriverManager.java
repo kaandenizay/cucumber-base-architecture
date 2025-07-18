@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.time.Duration;
+
 public class DriverManager {
 
     private static final ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
@@ -16,27 +18,26 @@ public class DriverManager {
         } else if (browser.equals("chrome")) {
             driverPool.set(new ChromeDriver(chromeOptions()));
         }
+        driverPool.get().manage().window().maximize();
     }
 
     public static WebDriver getThreadDriver() {
-        driverPool.get().manage().window().maximize();
-//        driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         return driverPool.get();
     }
 
-    public static void quitDriver() {
+    public static void cleanupDriver() {
         if (driverPool.get() != null) {
             getThreadDriver().quit();
         }
+        driverPool.remove();
     }
 
-    public static void removeThreadPool() {
-        driverPool.remove();
-        }
 
     public static ChromeOptions chromeOptions() {
         ChromeOptions options = new ChromeOptions();
             options.setPageLoadStrategy(PageLoadStrategy.EAGER); // WebDriver waits until DOMContentLoaded event fire is returned.
+            options.setImplicitWaitTimeout(Duration.ofSeconds(10));
+            options.addArguments("--headless");
         return options;
     }
 
