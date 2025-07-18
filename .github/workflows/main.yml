@@ -44,7 +44,7 @@ jobs:
             ${{ runner.os }}-maven
 
       # Step 5: Run Maven to execute Cucumber tests
-      - name: Run Playwright Tests
+      - name: Run Cucumber Tests
         run: mvn clean test verify
 
 #      - name: Archive Cucumber HTML Report
@@ -59,7 +59,7 @@ jobs:
         if: always()
         run: |
           mkdir gh-pages-content
-          cp -r target/cucumber-html-reports gh-pages-content/
+          cp -r target/cucumber-html-reports gh-pages-content
       
   
 
