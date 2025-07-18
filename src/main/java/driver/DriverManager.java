@@ -36,7 +36,7 @@ public class DriverManager {
         ChromeOptions options = new ChromeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.EAGER); // WebDriver waits until DOMContentLoaded event fire is returned.
         options.setImplicitWaitTimeout(Duration.ofSeconds(10));
-
+        
         // Performance & Stability
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
@@ -44,6 +44,7 @@ public class DriverManager {
         options.addArguments("--disable-extensions");
 
         // Browser Behavior
+        options.addArguments("--headless");
         options.addArguments("--window-size=1920,1080");
         options.addArguments("--start-maximized");
         options.addArguments("--disable-notifications");
