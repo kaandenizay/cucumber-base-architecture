@@ -1,0 +1,72 @@
+name: Cucumber Junit Tests
+
+# Trigger the workflow on every push to any branch
+on:
+  push:
+    branches: [ main ]  # Run only main branch for every commit
+  pull_request:
+    branches: [ main ]   # Run only every pull request for main branch
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up JDK 17 (adjust if you're using a different version)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+
+      # Step 3: Install Maven 3.9.9
+      - name: Setup Maven Action
+        uses: s4u/setup-maven-action@v1.7.0
+        with:
+          checkout-fetch-depth: 0
+          java-version: 17
+          java-distribution: temurin
+          maven-version: 3.9.9
+
+      # Step 4: Cache Maven dependencies
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven
+
+      # Step 5: Run Maven to execute Cucumber tests
+      - name: Run Playwright Tests
+        run: mvn clean test verify
+
+#      - name: Archive Cucumber HTML Report
+#        if: always()
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: cucumber-report
+#          path: target/cucumber-html-reports/
+
+      # Step 6: Prepare Cucumber HTML Report for Deploying as Github page
+      - name: Prepare Cucumber HTML Report
+        if: always()
+        run: |
+          mkdir gh-pages-content
+          cp -r target/cucumber-html-reports gh-pages-content/
+      
+  
+
+      # Step 7: Deploy Cucumber reports to GitHub Pages
+      - name: Deploy Cucumber Reports to GitHub Pages
+        if: always()  # Ensure this step runs even if tests fail
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: gh-pages-content
