@@ -23,10 +23,6 @@ public class PracticeAutoLoginPage extends BasePage {
     @FindBy(xpath = "//efilli-layout-dynamic")
     private WebElement shadowFrame;
 
-    public PracticeAutoLoginPage(WebDriver driver) {
-//        super(driver);
-    }
-
     public void fillUsername(String username){
         usernameInput.sendKeys(username);
     }
