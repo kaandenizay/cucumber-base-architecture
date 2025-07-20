@@ -70,7 +70,7 @@ jobs:
         if: always()
         run: |
           mkdir gh-pages-content
-          cp -r target/cucumber/cucumber-html-reports gh-pages-content
+          cp -r target/cucumber/cucumber-html-reports/* gh-pages-content
       
   
 
