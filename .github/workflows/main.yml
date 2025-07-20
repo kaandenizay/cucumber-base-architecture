@@ -8,6 +8,11 @@ on:
     branches: [ main ]   # Run only every pull request for main branch
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      testGroup:
+        description: 'Test Group to run'
+        required: true
+        default: ['@smoke', '@regression', '@login', '@contact-us']
 
 jobs:
   test:
@@ -45,7 +50,7 @@ jobs:
 
       # Step 5: Run Maven to execute Cucumber tests
       - name: Run Cucumber Tests
-        run: mvn clean test verify
+        run: mvn clean test -Dcucumber.filter.tags=${{ github.event.inputs.testGroup }}
 
 #      - name: Archive Cucumber HTML Report
 #        if: always()
@@ -59,7 +64,7 @@ jobs:
         if: always()
         run: |
           mkdir gh-pages-content
-          cp -r target/cucumber-html-reports gh-pages-content
+          cp -r target/cucumber/cucumber-html-reports gh-pages-content
       
   
 
