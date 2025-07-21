@@ -1,6 +1,6 @@
 name: Cucumber Junit Tests
 
-# Trigger the workflow on every push to any branch
+# Trigger the workflow on every push to any branch --test
 on:
   push:
     branches: [ main ]  # Run only main branch for every commit
